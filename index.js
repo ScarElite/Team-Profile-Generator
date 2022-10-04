@@ -1,5 +1,5 @@
 const inquirer = require("inquirer");
-const fs = require("path");
+const fs = require("fs");
 
 const teamData = [];
 
