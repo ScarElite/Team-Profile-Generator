@@ -1,5 +1,11 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
+const generateHTML = require("./utils/page-template");
+
+// Require Objects
+const Manager = require("./lib/Manager");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
 
 const teamData = [];
 
@@ -29,6 +35,15 @@ function createTeam() {
         message: "What is the team manager's office number?",
       },
     ])
+    .then((answers) => {
+      const manager = new Manager(
+        answers.managerName,
+        answers.managerId,
+        answers.managerEmail,
+        answers.managerOffice
+      );
+      teamData.push(manager);
+    })
     .then(() => {
       addTeamMember();
     });
@@ -52,6 +67,8 @@ function addTeamMember() {
         createIntern();
       } else if (choice.pickMember === "No more employees") {
         console.log("Your team has been created!");
+        let generatedHTML = generateHTML(teamData);
+        writeFile(generatedHTML);
       }
     });
 }
@@ -80,6 +97,15 @@ function createEngineer() {
         message: "What is your engineer's GitHub username?",
       },
     ])
+    .then((answers) => {
+      const engineer = new Engineer(
+        answers.engineerName,
+        answers.engineerId,
+        answers.engineerEmail,
+        answers.engineerGitHub
+      );
+      teamData.push(engineer);
+    })
     .then(function () {
       addTeamMember();
     });
@@ -109,9 +135,34 @@ function createIntern() {
         message: "What is your intern's school?",
       },
     ])
+    .then((answers) => {
+      const intern = new Intern(
+        answers.internName,
+        answers.internId,
+        answers.internEmail,
+        answers.internSchool
+      );
+      teamData.push(intern);
+    })
     .then(function () {
       addTeamMember();
     });
 }
+
+const writeFile = (generateHTML) => {
+  return new Promise((resolve, reject) => {
+    fs.writeFile("./dist/index.html", generateHTML, (err) => {
+      if (err) {
+        reject(err);
+        return;
+      } else {
+        resolve({
+          ok: true,
+          message: "File Created!",
+        });
+      }
+    });
+  });
+};
 
 createTeam();
