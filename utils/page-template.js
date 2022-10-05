@@ -4,7 +4,7 @@ const createTeam = (team) => {
     return `
     <!-- The Manager -->
     <div class="is-justify-content-center mt-4" style="display: flex;">
-        <div class="card my-4" style="width: 300px;">
+        <div class="card my-4 has-background-grey-lighter" style="width: 300px;">
             <div class="card-header has-background-info is-flex-direction-column py-3">
                 <h3 class="card-header-title has-text-white py-2 is-size-4">${manager.getName()}</h3>
                 <h4 class="card-header-title has-text-white py-2 is-size-5"><i class="fa-solid fa-mug-hot mr-2"></i> ${manager.getRole()}</h4>
@@ -12,8 +12,8 @@ const createTeam = (team) => {
               <div class="card-content has-background-grey-lighter">
                 <div class="card-headers pl-3">
                 <h5 class="my-1 py-2">Employee ID: ${manager.getId()}</h5>
-                <h5 class="my-1 py-2">Office Phone Number: ${manager.getOfficeNumber()}</h5>
-                <h5 class="my-1 py-2">Email: <a>${manager.getEmail()}</a></h5>
+                <h5 class="my-1 py-2" style="width: 100%;">Office Phone Number: ${manager.getOfficeNumber()}</h5>
+                <h5 class="my-1 py-2">Email: <a href="mailto:">${manager.getEmail()}</a></h5>
               </div>
             </div>
         </div>
@@ -26,7 +26,7 @@ const createTeam = (team) => {
     return `
     <!-- The Engineer(s) -->
     <div class="is-justify-content-center mt-4" style="display: flex;">
-        <div class="card my-4" style="width: 300px;">
+        <div class="card my-4 has-background-grey-lighter" style="width: 300px;">
           <div class="card-header has-background-info is-flex-direction-column py-3">
                 <h3 class="card-header-title has-text-white py-2 is-size-4">${engineer.getName()}</h3>
                 <h4 class="card-header-title has-text-white py-2 is-size-5"><i class="fa-solid fa-glasses mr-2"></i> ${engineer.getRole()}</h4>
@@ -34,8 +34,8 @@ const createTeam = (team) => {
               <div class="card-content has-background-grey-lighter">
                 <div class="card-headers pl-3">
                 <h5 class="my-1 py-2">Employee ID: ${engineer.getId()}</h5>
-                <h5 class="my-1 py-2">Email: <a>${engineer.getEmail()}</a></h5>
-                <h5 class="my-1 py-2">GitHub: <a>${engineer.getGitHub()}</a></h5>
+                <h5 class="my-1 py-2">Email: <a href="mailto:">${engineer.getEmail()}</a></h5>
+                <h5 class="my-1 py-2">GitHub: <a href="https://github.com/${engineer.getGitHub()}" target="_blank">${engineer.getGitHub()}</a></h5>
               </div>
           </div>
         </div>
@@ -48,7 +48,7 @@ const createTeam = (team) => {
     return `
     <!-- The Intern(s) -->
     <div class="is-justify-content-center mt-4" style="display: flex;">
-        <div class="card my-4" style="width: 300px;">
+        <div class="card my-4 has-background-grey-lighter" style="width: 300px;">
             <div class="card-header has-background-info is-flex-direction-column py-3">
                 <h3 class="card-header-title has-text-white py-2 is-size-4">${intern.getName()}</h3>
                 <h4 class="card-header-title has-text-white py-2 is-size-5"><i class="fa-solid fa-user-graduate mr-2"></i> ${intern.getRole()}</h4>
@@ -57,7 +57,7 @@ const createTeam = (team) => {
                 <div class="card-headers pl-3">
                 <h5 class="my-1 py-2">Employee ID: ${intern.getId()}</h5>
                 <h5 class="my-1 py-2">School: ${intern.getSchool()}</h5>
-                <h5 class="my-1 py-2">Email: <a>${intern.getEmail()}</a></h5>
+                <h5 class="my-1 py-2">Email: <a href="mailto:">${intern.getEmail()}</a></h5>
               </div>
             </div>
         </div>
