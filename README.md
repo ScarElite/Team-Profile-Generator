@@ -20,7 +20,7 @@ This application is dependant on Node.js and will not work without it.
 
 Best viewed in full screen
 
-<iframe src="https://drive.google.com/file/d/11BeHti2L-FztSNXoEtJRCDEWFl6WOOMZ/preview" width="640" height="480"></iframe>
+https://drive.google.com/file/d/11BeHti2L-FztSNXoEtJRCDEWFl6WOOMZ/view
 
 ## Here's a preview of what your Team might look like!
 
